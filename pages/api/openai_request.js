@@ -30,7 +30,17 @@ const chatGptRequest = async (
 };
 
 export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // or the specific origin you want to allow
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Handle CORS preflight request
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
   const { mainMessageList, stream, maxTokens } = req.body;
+
   if (req.method === "POST") {
     console.log("\n");
     console.log("PASSED Variables:");
@@ -40,6 +50,7 @@ export default async function handler(req, res) {
     console.log("\n");
     console.log(process.env.OPENAI_API_KEY);
     console.log("\n");
+
     try {
       const response = await chatGptRequest(
         mainMessageList,
@@ -47,7 +58,43 @@ export default async function handler(req, res) {
         stream,
         maxTokens
       );
-      res.status(200).json({ response });
+
+      if (stream) {
+        // Set up SSE headers
+        res.setHeader("Content-Type", "text/event-stream");
+        res.setHeader("Cache-Control", "no-cache");
+        res.setHeader("Connection", "keep-alive");
+        res.flushHeaders();
+
+        // Get a reader from the response body
+        const reader = response.body.getReader();
+        let textDecoder = new TextDecoder("utf-8");
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          // Decode and send chunks to the client
+          const decodedChunk = textDecoder.decode(value);
+          const lines = decodedChunk.split("\n");
+          const parsedLines = lines
+            .map((line) => line.replace(/^data: /, "").trim())
+            .filter((line) => line !== "" && line !== "[DONE]")
+            .map((line) => JSON.parse(line));
+          parsedLines.forEach((parsedLine) => {
+            const content = parsedLine.choices[0].delta.content;
+            if (content) {
+              res.write(content);
+            }
+          });
+        }
+
+        // Close the connection when done
+        res.end();
+      } else {
+        const data = await response.json();
+        res.status(200).json(data);
+      }
     } catch (error) {
       console.log(error);
       res.status(500).json({ error });
