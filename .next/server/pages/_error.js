@@ -5,7 +5,7 @@ exports.id = 820;
 exports.ids = [820];
 exports.modules = {
 
-/***/ 4600:
+/***/ 499:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -19,8 +19,8 @@ Object.defineProperty(exports, "default", ({
     }
 }));
 const _interop_require_default = __webpack_require__(167);
-const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(6689));
-const _head = /*#__PURE__*/ _interop_require_default._(__webpack_require__(8965));
+const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(689));
+const _head = /*#__PURE__*/ _interop_require_default._(__webpack_require__(636));
 const statusCodes = {
     400: "Bad Request",
     404: "This page could not be found",
@@ -121,10 +121,11 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 8965:
+/***/ 636:
 /***/ ((module, exports, __webpack_require__) => {
 
-/* __next_internal_client_entry_do_not_use__  cjs */ 
+
+"use client";
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
@@ -144,12 +145,12 @@ _export(exports, {
     }
 });
 const _interop_require_default = __webpack_require__(167);
-const _interop_require_wildcard = __webpack_require__(8760);
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__webpack_require__(6689));
-const _sideeffect = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2470));
-const _ampcontext = __webpack_require__(3918);
-const _headmanagercontext = __webpack_require__(2796);
-const _ampmode = __webpack_require__(5732);
+const _interop_require_wildcard = __webpack_require__(760);
+const _react = /*#__PURE__*/ _interop_require_wildcard._(__webpack_require__(689));
+const _sideeffect = /*#__PURE__*/ _interop_require_default._(__webpack_require__(470));
+const _ampcontext = __webpack_require__(918);
+const _headmanagercontext = __webpack_require__(796);
+const _ampmode = __webpack_require__(732);
 const _warnonce = __webpack_require__(618);
 function defaultHead(inAmpMode) {
     if (inAmpMode === void 0) inAmpMode = false;
@@ -299,28 +300,28 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 3918:
+/***/ 918:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/amp-context.js");
 
 /***/ }),
 
-/***/ 5732:
+/***/ 732:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/amp-mode.js");
 
 /***/ }),
 
-/***/ 2796:
+/***/ 796:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
-/***/ 2470:
+/***/ 470:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/side-effect.js");
@@ -334,7 +335,7 @@ module.exports = require("next/dist/shared/lib/utils/warn-once.js");
 
 /***/ }),
 
-/***/ 6689:
+/***/ 689:
 /***/ ((module) => {
 
 module.exports = require("react");
@@ -354,7 +355,7 @@ function _interop_require_default(obj) {
 
 /***/ }),
 
-/***/ 8760:
+/***/ 760:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -406,7 +407,7 @@ function _interop_require_wildcard(obj, nodeInterop) {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(4600));
+var __webpack_exports__ = (__webpack_exec__(499));
 module.exports = __webpack_exports__;
 
 })();

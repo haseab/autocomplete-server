@@ -5,7 +5,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 5366:
+/***/ 35:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -19,8 +19,8 @@ Object.defineProperty(exports, "default", ({
     }
 }));
 const _interop_require_default = __webpack_require__(167);
-const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(6689));
-const _utils = __webpack_require__(9232);
+const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(689));
+const _utils = __webpack_require__(232);
 /**
  * `App` component is used for initialize of pages. It allows for overwriting and full control of the `page` initialization.
  * This allows for keeping state between navigation, custom error handling, injecting additional data.
@@ -54,14 +54,14 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 9232:
+/***/ 232:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/utils.js");
 
 /***/ }),
 
-/***/ 6689:
+/***/ 689:
 /***/ ((module) => {
 
 module.exports = require("react");
@@ -88,7 +88,7 @@ function _interop_require_default(obj) {
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(5366));
+var __webpack_exports__ = (__webpack_exec__(35));
 module.exports = __webpack_exports__;
 
 })();
