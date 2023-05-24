@@ -3,7 +3,6 @@ node_modules
 .env.production
 .env
 .env.local
-.next/
 jsconfig.json
 
 *.class
